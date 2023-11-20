@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChildComponent } from '../child/child.component';
 
@@ -11,8 +11,11 @@ import { ChildComponent } from '../child/child.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 
 })
-export class ParentComponent {
+export class ParentComponent implements OnInit {
 
+
+  ngOnInit(): void {
+  }
   parent() {
     console.log('parent');
     return 'parent';

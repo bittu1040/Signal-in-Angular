@@ -3,6 +3,27 @@
 
   <app-grandparent></app-grandparent>
 
-</div>
+  <div style="border: 1px solid; padding: 10px; margin-top: 30px; height: 200px;">
 
-<router-outlet></router-outlet>
+    <div class="row">
+      <div class="col-md-3 mb-2">
+        Full name: {{fullname()}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="First name">
+        </div>
+        <button class="btn btn-primary" type="button" (click)="updateFirstName()">Change first name</button>
+      </div>
+      <div class="col-md-3">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Last name">
+        </div>
+        <button class="btn btn-primary" type="button" (click)="updateLastName()">Change last name</button>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
