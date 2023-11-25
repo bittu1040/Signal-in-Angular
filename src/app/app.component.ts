@@ -57,7 +57,6 @@ updateLastName(){
     const lastNameValue = this.lastNameInput.nativeElement.value;
     this.lastName.set(lastNameValue);
   }
-  
 }
 
 ngOnInit(): void {
