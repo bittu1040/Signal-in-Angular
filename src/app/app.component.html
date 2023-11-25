@@ -5,25 +5,24 @@
 
   <div style="border: 1px solid; padding: 10px; margin-top: 30px; height: 200px;">
 
-    <div class="row">
-      <div class="col-md-3 mb-2">
-        Full name: {{fullname()}}
-      </div>
-    </div>
 
-    <div class="row">
+    <div class="row p-3">
       <div class="col-md-3">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="First name">
+          <input type="text" class="form-control" #firstname  placeholder="First name">
         </div>
         <button class="btn btn-primary" type="button" (click)="updateFirstName()">Change first name</button>
       </div>
       <div class="col-md-3">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Last name">
+          <input type="text" class="form-control" #lastname placeholder="Last name">
         </div>
         <button class="btn btn-primary" type="button" (click)="updateLastName()">Change last name</button>
       </div>
+      <div class="col-md-3">
+        Full name: {{fullname()}}
+      </div>
     </div>
   </div>
+
   <router-outlet></router-outlet>

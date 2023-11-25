@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, computed, effect, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild, computed, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import {MatInputModule} from '@angular/material/input';
@@ -26,13 +26,17 @@ export class AppComponent implements OnInit{
 count= signal(2);
 number1= signal(3);
 number2= signal(4);
-
 computedCount=  computed(()=> this.number1()+ this.number2());
 
-firstName= signal('bittu');
-lastName= signal('kumar');
 
-fullname= signal("Bittu Kumar");
+firstName= signal('Bittu');
+lastName= signal('Kumar');
+
+@ViewChild('firstname', { static: false }) firstNameInput?: ElementRef;
+@ViewChild('lastname', { static: false }) lastNameInput?: ElementRef;
+
+fullname=  computed(()=> this.firstName()+ " "+this.lastName())
+
 
 
 constructor() {
@@ -42,10 +46,17 @@ constructor() {
 }
 
 updateFirstName(){
-
+  if (this.firstNameInput) {
+    const firstNameValue = this.firstNameInput.nativeElement.value;
+    this.firstName.set(firstNameValue);
+  }
 }
 
 updateLastName(){
+  if (this.lastNameInput) {
+    const lastNameValue = this.lastNameInput.nativeElement.value;
+    this.lastName.set(lastNameValue);
+  }
   
 }
 
