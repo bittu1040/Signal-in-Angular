@@ -4,12 +4,10 @@
   <app-grandparent></app-grandparent>
 
   <div style="border: 1px solid; padding: 10px; margin-top: 30px; height: 200px;">
-
-
     <div class="row p-3">
       <div class="col-md-3">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" #firstname  placeholder="First name">
+          <input type="text" class="form-control" #firstname placeholder="First name">
         </div>
         <button class="btn btn-primary" type="button" (click)="updateFirstName()">Change first name</button>
       </div>
@@ -25,4 +23,24 @@
     </div>
   </div>
 
-  <router-outlet></router-outlet>
+  <div class="border border-secondary mt-4">
+   <div class="row p-3">
+      <div class="col-md-4">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" #firstname1 (input)="updateFirstName1()" [value]="firstName1()" placeholder="First name">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" #lastname1 (input)="updateLastName1()" [value]="lastName1()" placeholder="Last name">
+        </div>
+      </div>
+      <div class="col-md-4">
+        Full name: {{fullname1()}}
+      </div>
+   </div>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>
