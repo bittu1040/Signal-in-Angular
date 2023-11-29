@@ -80,6 +80,10 @@ export class AppComponent implements OnInit {
     }
   }
 
+  randomNumber1: any;
+  currentNumber: number = 1;
+  interval: any;
+
   ngOnInit(): void {
     console.log("start", this.count());
 
@@ -93,7 +97,20 @@ export class AppComponent implements OnInit {
 
     console.log("computed signal", this.computedCount())
 
+    // this.interval = setInterval(() => {
+    //   this.randomNumber1= this.updateRandomNumber();
+    //   if(this.randomNumber1<=8){
+    //     console.log(this.randomNumber1)
+    //   }else{
+    //     console.log(this.randomNumber1)
+    //     console.log("stop")
+    //     clearInterval(this.interval);
+    //   }
+    // }, 1000); 
   }
 
+  updateRandomNumber() {
+    return Math.floor(Math.random() * 10) + 1;
+  }
 
 }

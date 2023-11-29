@@ -13,20 +13,27 @@ import { FormsModule } from '@angular/forms';
 })
 export class ChildComponent {
   randomNumber = 9; 
-  randomNumber1: number | undefined;
   interval: any;
+  randomNumber1: any;
+  currentNumber: number = 1;
 
   constructor() {}
 
   ngOnInit() {
-    this.updateRandomNumber(); 
-    // this.interval = setInterval(() => {
-    //   this.updateRandomNumber();
-    // }, 5000);
+    this.interval = setInterval(() => {
+      this.randomNumber1= this.updateRandomNumber();
+      if(this.randomNumber1<=8){
+        console.log(this.randomNumber1)
+      }else{
+        console.log(this.randomNumber1)
+        console.log("stop child")
+        clearInterval(this.interval);
+      }
+    }, 1000); 
   }
 
   updateRandomNumber() {
-    this.randomNumber1 = Math.floor(Math.random() * 10) + 1; 
+    return Math.floor(Math.random() * 10) + 1; 
   }
 
   ngOnDestroy() {
